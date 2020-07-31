@@ -1,4 +1,6 @@
 class Man:
+    #self.name: instance variable
+    #variable stored per instance
     def __init__(self, name): #Same as constructor in CPP
         self.name = name
         print("init done")
