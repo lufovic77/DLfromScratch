@@ -4,12 +4,6 @@
 x = np.array([1.0, 2.0, 3.0])
 print(x)
 ```
-물론, 
-```python
-np.array([1,2], [1,2,3,4]) #Data type error
-```
-이런식의 선언은 안된다.
-
 ## Numpy array arithmetic
 같은 수의 원소를 가진 배열은 element-wise 연산을 수행한다. 
 ```python
@@ -31,11 +25,17 @@ B = np.array([[3,0], [0,6]])
 print(A+B) #Also element-wise. Only between identical shape
 print(A*10) #Array with scalar(broadcasting)
 ```
+그렇다면, 원소의 개수를 안맞춰도 되나? 
+```python
+np.array([[1,2], [1,2,3,4]]) 
+```
+이런식의 선언은 되긴 하지만, 우리가 원하는 2x2 행렬같은 타입이 아니라,  
+그냥 리스트를 두개 담은 오브젝트가 선언된다. 
 
 ## Broadcasting
 브로드캐스팅이란 아주 좋은 연산 방법이 존재한다.  
 주로 스칼라 값을 행렬에 대해 연산하는 경우 자동으로 적용.  
-자동적으로 둘의 형상(shape)를 동잃하게 만든다.  
+자동적으로 둘의 형상(shape)를 동일하게 만든다.  
 ```python
 A = np.array([[1,2], [3,4]])
 A = A * 10
