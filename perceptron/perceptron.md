@@ -1,4 +1,4 @@
-# Percepron
+# Perceptron
 퍼셉트론은 다수의 입력 -> 하나의 출력이 특징이다.  
 각 입력에는 __가중치__(W, weight)가 곱해져서 보내진다.  
 ex) 입력 x1, x2 그리고 가중치 w1, w2
@@ -44,6 +44,13 @@ y =
 퍼셉트론은 영역을 직선으로 나눈다.  
 AND, NAND 그리고 OR은 모든 경우를 직선 하나로 구분이 가능하지만,  
 XOR은 곡선이 아니고서야 구분할 수 없다.  
-이런 경우, 퍼셉트론을 여러층 쌓으면 구현할 수 있다(Multi-layer perceptron).
+이런 경우, 퍼셉트론을 여러층 쌓으면 구현할 수 있다(Multi-layer perceptron).  
 
+XOR 게이트는AND, NAND 그리고 OR 게이트를 조합하면 구현이 가능하다.  
+즉, 앞서 구현한 단층 퍼셉트론들을 여러겹 뭉치면 XOR게이트를 구현이 가능. 
 
+# Appendix
+시그모이드 함수를 활성화 함수로 이용하면 임의의 함수 표현이 가능하다.  
+
+# Reference
+밑바닥부터 시작하는 딥러닝(Deep Learning from Scratch)
