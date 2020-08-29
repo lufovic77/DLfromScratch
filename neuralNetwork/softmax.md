@@ -6,6 +6,7 @@ Input Layer -> Hidden Layer -> Output Layer
 Machine Learning의 문제는 classification, regression으로 나뉜다.  
 - Classification: 특정 클래스 소속 여부 결정  
 - Regression: 데이터를 보고 연속적인 수치를 predict    
+
 여기서 classification은 출력층의 함수로 softmax함수를 사용하며,  
 regression은 항등함수(입력값이 곧 출력값)를 사용한다.   
 해당 이유에 대해서는 뒤에 설명된다.  
