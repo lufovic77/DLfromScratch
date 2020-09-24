@@ -53,4 +53,26 @@ def CCE(y, k):
 	delta = 1e-7
 	return -np.sum(t*np.log(y+delta))
 ```
+## 그래서 손실함수는 왜 사용할까?
+사실, 우리의 목적은 신경망을 학습해서 정확도를 높이는 것이다. 
+그럼 그냥 정확도를 최대한 높게하는 매개변수를 찾으면 되지, 
+굳이 손실함수를 최소화 할 필요가 있을까?
 
+문제는 정확도를 나타내는 함수는 주로 [여기](https://github.com/lufovic77/DLfromScratch/blob/master/neuralNetwork/neuralNetwork.md#step-function)에서 소개한 **step function**의 형태를 가진다는 것이다. 
+즉, 매개변수를 조금씩 움직여도 정확도는 안 바뀔 수도 있고, 혹은 급격하게 바뀔 수 있다. 
+
+이에 반해 loss function은 sigmoid 함수 같은 형태를 띠기 때문에, 
+매개변수를 세밀하게 조절해도 값에서 연속적인 차이를 보인다. 
+
+이는 추후 우리가 도입하는 미분과도 큰 영향이 있는데, 
+우리는 손실함수를 미분하여 그 극솟값이나 최솟값을 찾으려고 한다. 
+만약 **미분 값이 음수**라면, **양의 방향으로 이동**해 값을 최소화 해야 하며, 
+**양수라면** **음의 방향으로 이동**해 값을 최소화 해야 한다. 
+이는 다음 그림을 보면 간단히 이해 할 수 있다. 
+![손실함수의 미분](https://github.com/lufovic77/DLfromScratch/blob/master/nnLearning/differential.png)
+
+
+- 계단 함수
+: 미분 시 0이 되는 지점이 많이 존재함. 
+- Sigmoid 함수 
+: 0이 되는 곳이 우리가 찾는 지점임. 
