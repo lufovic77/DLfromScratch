@@ -1,7 +1,7 @@
 # coding: utf-8
 import sys, os
 import pickle
-sys.path.append("../../")
+sys.path.append("../CH3_neuralNetwork")
 sys.path.append("../")
 import numpy as np
 from dataset.mnist import load_mnist
@@ -12,7 +12,7 @@ def get_data(f, n, o):
     #train: literally training data
     #x: image info. pixel value
     #t: label. answer. 
-    return x_test, t_test
+    return x_train, t_train, x_test, t_test
 def init_network():
     with open("sample_weight.pkl", 'rb') as f: #contains the weigth and bias
         network = pickle.load(f)
