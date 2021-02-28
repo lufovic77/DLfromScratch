@@ -23,6 +23,9 @@ def predict(network, x):
     b1, b2, b3 = network['b1'], network['b2'], network['b3'] 
     # 3 Layers
     #784 -> sigmoid -> 50 -> sigmoid -> 100 -> softmax -> 10 (10 figures)
+    #X      W1      W2      W3      Y
+    #784 ->784X50->50X100->100X10->10(10 figures)
+    #X means the input. Just one image. Other source 'batch_mnist.py' shows the input with batch. 
     a1 = np.dot(x, W1) + b1
     z1 = sigmoid(a1)
     a2 = np.dot(z1, W2) + b2
