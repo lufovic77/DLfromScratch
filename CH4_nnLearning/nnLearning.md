@@ -55,7 +55,7 @@ def CCE(y, k):
 	delta = 1e-7
 	return -np.sum(t*np.log(y+delta))
 ```
-##미니배치(mini-batch). 미니배치는 배치학습과 다른가?  
+## 미니배치(mini-batch). 미니배치는 배치학습과 다른가?  
 우리가 CH3에서 보았던 batch 입력은 입력 과정에서 하나씩 신경망에 넣는게 아니라   
 묶어서 입력을 만드는 것이였다.  
 그럼 미니배치는 뭘까?   
@@ -87,7 +87,7 @@ MNIST 손글씨만 보더라도 데이터가 60,000개이다.
 **양수라면** **음의 방향으로 이동**해 값을 최소화 해야 한다.      
 이는 다음 그림을 보면 간단히 이해 할 수 있다. 
 			         
-![손실함수의 미분](https://github.com/lufovic77/DLfromScratch/blob/master/nnLearning/differential.png)     
+![손실함수의 미분](https://github.com/lufovic77/DLfromScratch/blob/master/CH4_nnLearning/differential.png)     
 
 해당 그래프가 손실함수의 그래프라고 하자.   
 이때, 2번 접선은 손실함수의 최솟값을 나타낸다.   
