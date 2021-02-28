@@ -25,7 +25,7 @@ def predict(network, x):
     #784 -> sigmoid -> 50 -> sigmoid -> 100 -> softmax -> 10 (10 figures)
     #X      W1      W2      W3      Y
     #784 ->784X50->50X100->100X10->10(10 figures)
-    #X means the input. Just one image. Other source 'batch_mnist.py' shows the input with batch. 
+    #X means the input. Just one image. The other code below shows the input with batch. 
     a1 = np.dot(x, W1) + b1
     z1 = sigmoid(a1)
     a2 = np.dot(z1, W2) + b2
@@ -45,3 +45,17 @@ for i in range(len(x)): #each image, predice the accuracy
     if p == t[i]: #if it's correct
         accuracy_cnt +=1
 print("Accuracy:" + str(float(accuracy_cnt)/len(x)))
+"""
+TILL HERE FOR JUST ONE IMAGE. BELOW SHOWS THE BATCH INPUT. 
+"""
+
+batch_size = 100
+accuracy_cnt = 0
+
+for i in range(0, len(x), batch_size): #increasing interval: batch size. range(start, end, step): start~end-1, increasing step
+    x_batch = x[i:i+batch_size]
+    y_batch = predict(network, x_batch) #y_batch는 100x10 형상임. 
+    p = np.argmax(y_batch, axis=1) #axis=1은 1차원, 즉 100x10중 10에서 최대값의 인덱스를 반환. 어떤 레이블이 가장 답과 가까운지를 뽑아낸다고 생각하면 된다. (어떤 숫자)
+    accuracy_cnt += np.sum(p == t[i:i+batch_size]) #t는 정답이고 p는 신경망이 추론한 결과 
+print("Accuracy:" + str(float(accuracy_cnt)/len(x)))
+
